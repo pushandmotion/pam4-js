@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ITrackerObject } from './TrackerDataBuilder';
+import { ITrackerObject,TrackerDataBuilder } from './TrackerDataBuilder';
 
 export class PAM {
   private pamURL: string;
@@ -8,6 +8,10 @@ export class PAM {
       url = url.slice(0, url.length - 1);
     }
     this.pamURL = url;
+  }
+
+  public createTrackingDataBuilder(eventName: string): TrackerDataBuilder{
+    return new TrackerDataBuilder(eventName);
   }
 
   public getPamURL(): string {
