@@ -20,14 +20,14 @@ export class PAM {
 
   public postEvent(eventName: string, trackObject: ITrackerObject, contactId: string = ''): Promise<any> {
     
-    var headers = {}
+    let headersWithCookie = {}
 
-    if(contactId != ''){
-      headers = {
+    if(contactId !== ''){
+      headersWithCookie = {
         'Content-Type': 'application/json'
       }
     }else{
-      headers = {
+      headersWithCookie = {
         'Content-Type': 'application/json',
         Cookie: `contact_id=${contactId}`,
       }
@@ -36,7 +36,7 @@ export class PAM {
     return new Promise((resolve, reject) => {
       axios
         .post(this.trackerURL, trackObject, {
-          headers:headers
+          headers:headersWithCookie
         })
         .then(response => {
           resolve(response);
