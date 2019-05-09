@@ -44,8 +44,8 @@ export class PAM {
         .then(response => {
           resolve(response);
         })
-        .catch(e => {
-          return e;
+        .catch(err => {
+          console.log(err);
         });
     });
   }
