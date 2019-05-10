@@ -22,10 +22,10 @@ export class PAM {
     return this.pamURL + '/trackers/events';
   }
 
-  public postEvent(eventName: string, trackObject: ITrackerObject, contactId: string = ''): Promise<any> {
+  public postEvent(trackObject: ITrackerObject, contactId: string = ''): Promise<any> {
     let headersWithCookie = {};
 
-    if (contactId !== '') {
+    if (contactId != null && contactId !== '') {
       headersWithCookie = {
         'Content-Type': 'application/json',
         Cookie: `contact_id=${contactId}`,
