@@ -28,7 +28,7 @@ export class PAM {
     if (contactId !== '') {
       headersWithCookie = {
         'Content-Type': 'application/json',
-        'Cookie': `contact_id=${contactId}`,
+        Cookie: `contact_id=${contactId}`,
       };
     } else {
       headersWithCookie = {
